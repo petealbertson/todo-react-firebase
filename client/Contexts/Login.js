@@ -1,19 +1,47 @@
 import { connect } from 'react-redux';
-import Login from '../Components/Login';
-import { attemptLogin } from '../Actions/Auth';
+import Login from '../Pages/Login';
 
+import { createProfile, createUser, loginUser, checkUser, logoutUser } from '../Actions/Auth';
+
+/**
+ * Cherry pick values out of the given state model and choose which
+ * ones to pass to the contextual component.
+ *
+ * @param  {Object} state
+ * @return {Object}
+ */
 function mapStateToProps (state) {
+  return {};
+}
+
+/**
+ * Bind the store's dispatch() to action creators ahead of time to simplify
+ * action dispatching and decouple state manipulation from the component.
+ *
+ * @param  {Function} dispatch
+ * @return {Object}
+ */
+function mapDispatchToProps () {
   return {
-    isLoading: state.auth.loading
+    createProfile: (firstName, lastName, email, password) => {
+      createProfile (firstName, lastName, email, password);
+    },
+    createUser: (e) => {
+      e.preventDefault();
+      createUser(e.target.email.value, e.target.pass.value);
+    },
+    loginUser: (e) => {
+      e.preventDefault();
+      loginUser(e.target.email.value, e.target.pass.value);
+    },
+    checkUser: () => checkUser(),
+    logoutUser: () => logoutUser()
   };
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    onLogin: (email, pass) => dispatch(attemptLogin(email, pass))
-  };
-}
-
+/**
+ * Create the smart component.
+ */
 export default connect(
   mapStateToProps,
   mapDispatchToProps

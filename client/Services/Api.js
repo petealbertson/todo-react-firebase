@@ -1,9 +1,13 @@
-import { createPortal } from 'portals';
+import { Firebase } from './Firebase';
 
-const Api = createPortal({
-  globals: {
-    hostname: process.env.API_HOST
-  }
-});
+var adapter = Firebase;
+
+export function setAdapter (newAdapter) {
+  adapter = newAdapter;
+};
+
+function Api () {
+  return adapter;
+}
 
 export default Api;

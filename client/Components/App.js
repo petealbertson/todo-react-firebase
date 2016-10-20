@@ -6,7 +6,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h1 className='App-Greeting'>
-          Example Application
+          Todo List
         </h1>
         { this.props.children }
       </div>

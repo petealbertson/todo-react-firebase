@@ -10,6 +10,18 @@
   </head>
   <body>
     <main id="app"></main>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBu6m1paURBYw80GfeYB5ykMKVK4vzd3rE",
+        authDomain: "todo-react-firebase-cffcd.firebaseapp.com",
+        databaseURL: "https://todo-react-firebase-cffcd.firebaseio.com",
+        storageBucket: "",
+        messagingSenderId: "1023001898379"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="/app.js"></script>
   </body>
 </html>
